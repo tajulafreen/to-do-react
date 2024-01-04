@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import TaskItem from "./TaskItem";
+import AddTask from "./AddTask";
 const ToDoList = () => {
   const [tasks, setTasks] = useState([
     "eat breakfast",
@@ -66,48 +67,26 @@ const ToDoList = () => {
       <div className="">
         <div className="">
           <h1 className="text-3xl relative font-bold">To Do List</h1>
-          <div>
-            <input
-              type="text"
-              placeholder="Enter to do..."
-              value={newTask}
-              onChange={handleInputChange}
-            />
-            <button className="add-btn" onClick={addTask}>
-              Add
-            </button>
-          </div>
+          <AddTask
+            addTask={addTask}
+            newTask={newTask}
+            handleInputChange={handleInputChange}
+          />
           <ol>
             {tasks.map((task, index) => (
-              <li key={index}>
-                <button onClick={() => editTask(index)}>✒️</button>
-                {editIndex === index ? (
-                  <>
-                    <input
-                      type="text"
-                      value={editedTask}
-                      onChange={(e) => setEditedTask(e.target.value)}
-                    />
-                    <button className="add-btn" onClick={updateTask}>
-                      Update
-                    </button>
-                  </>
-                ) : (
-                  <span className="text">{task}</span>
-                )}
-                <button className="dlt-btn" onClick={() => deleteTask(index)}>
-                  Delete
-                </button>
-                <button className="up-btn" onClick={() => moveTaskUp(index)}>
-                  ⬆️
-                </button>
-                <button
-                  className="down-btn"
-                  onClick={() => moveTaskDown(index)}
-                >
-                  ⬇️
-                </button>
-              </li>
+              <TaskItem
+                key={index}
+                task={task}
+                index={index}
+                editTask={editTask}
+                deleteTask={deleteTask}
+                moveTaskUp={moveTaskUp}
+                moveTaskDown={moveTaskDown}
+                editIndex={editIndex}
+                editedTask={editedTask}
+                setEditedTask={setEditedTask}
+                updateTask={updateTask}
+              />
             ))}
           </ol>
         </div>
