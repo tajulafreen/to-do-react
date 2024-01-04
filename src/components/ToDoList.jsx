@@ -64,32 +64,32 @@ const ToDoList = () => {
 
   return (
     <>
-      <div className="to-do-list-bg">
-        <div className="">
-          <h1 className="text-3xl relative font-bold">To Do List</h1>
-          <AddTask
-            addTask={addTask}
-            newTask={newTask}
-            handleInputChange={handleInputChange}
-          />
-          <ol>
-            {tasks.map((task, index) => (
-              <TaskItem
-                key={index}
-                task={task}
-                index={index}
-                editTask={editTask}
-                deleteTask={deleteTask}
-                moveTaskUp={moveTaskUp}
-                moveTaskDown={moveTaskDown}
-                editIndex={editIndex}
-                editedTask={editedTask}
-                setEditedTask={setEditedTask}
-                updateTask={updateTask}
-              />
-            ))}
-          </ol>
-        </div>
+      <div className=" w-[90%] m-auto  ">
+        <h1 className="text-4xl  relative font-bold my-[30px] text-slate-200">
+          To Do List
+        </h1>
+        <AddTask
+          addTask={addTask}
+          newTask={newTask}
+          handleInputChange={handleInputChange}
+        />
+        <ol className="my-[7%]">
+          {tasks.map((task, index) => (
+            <TaskItem
+              key={index}
+              task={task}
+              index={index}
+              editTask={editTask}
+              deleteTask={deleteTask}
+              moveTaskUp={moveTaskUp}
+              moveTaskDown={moveTaskDown}
+              editIndex={editIndex}
+              editedTask={editedTask}
+              setEditedTask={setEditedTask}
+              updateTask={updateTask}
+            />
+          ))}
+        </ol>
       </div>
     </>
   );
