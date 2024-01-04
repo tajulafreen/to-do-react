@@ -7,19 +7,40 @@ const ToDoList = () => {
     "take a shower",
   ]);
   const [newTask, setNewTask] = useState("");
+  const [editIndex, setEditIndex] = useState(-1); // State to track the task being edited
+  const [editedTask, setEditedTask] = useState(""); // State for the edited task
+
   const handleInputChange = (event) => {
     setNewTask(event.target.value);
   };
+
   const addTask = () => {
     if (newTask.trim() !== "" && newTask.length > 5) {
       setNewTask("");
       setTasks((t) => [...t, newTask]);
     }
   };
+
+  const editTask = (index) => {
+    setEditIndex(index);
+    setEditedTask(tasks[index]);
+  };
+
+  const updateTask = () => {
+    if (editedTask.trim() !== "" && editedTask.length > 5 && editIndex !== -1) {
+      const updatedTasks = [...tasks];
+      updatedTasks[editIndex] = editedTask;
+      setTasks(updatedTasks);
+      setEditedTask("");
+      setEditIndex(-1);
+    }
+  };
+
   const deleteTask = (index) => {
     const updatedTasks = tasks.filter((e, i) => i !== index);
     setTasks(updatedTasks);
   };
+
   const moveTaskUp = (index) => {
     if (index > 0) {
       const updatedTasks = [...tasks];
@@ -29,6 +50,7 @@ const ToDoList = () => {
       setTasks(updatedTasks);
     }
   };
+
   const moveTaskDown = (index) => {
     if (index < tasks.length - 1) {
       const updatedTasks = [...tasks];
@@ -38,6 +60,7 @@ const ToDoList = () => {
       setTasks(updatedTasks);
     }
   };
+
   return (
     <>
       <div className="">
@@ -57,8 +80,22 @@ const ToDoList = () => {
           <ol>
             {tasks.map((task, index) => (
               <li key={index}>
-                <span className="text">{task}</span>
-                <button className="dlt-btn " onClick={() => deleteTask(index)}>
+                <button onClick={() => editTask(index)}>✒️</button>
+                {editIndex === index ? (
+                  <>
+                    <input
+                      type="text"
+                      value={editedTask}
+                      onChange={(e) => setEditedTask(e.target.value)}
+                    />
+                    <button className="add-btn" onClick={updateTask}>
+                      Update
+                    </button>
+                  </>
+                ) : (
+                  <span className="text">{task}</span>
+                )}
+                <button className="dlt-btn" onClick={() => deleteTask(index)}>
                   Delete
                 </button>
                 <button className="up-btn" onClick={() => moveTaskUp(index)}>
