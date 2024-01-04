@@ -64,7 +64,7 @@ const ToDoList = () => {
 
   return (
     <>
-      <div className="">
+      <div className="to-do-list-bg">
         <div className="">
           <h1 className="text-3xl relative font-bold">To Do List</h1>
           <AddTask
