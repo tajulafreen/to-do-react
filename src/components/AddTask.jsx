@@ -2,7 +2,7 @@ import React from "react";
 
 const AddTask = ({ addTask, newTask, handleInputChange }) => {
   return (
-    <div className="flex flex-row justify-around">
+    <div className="flex flex-row justify-around gap-2">
       <input
         type="text"
         placeholder="Enter to do..."

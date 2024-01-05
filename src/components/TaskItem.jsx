@@ -29,10 +29,10 @@ const TaskItem = ({
             type="text"
             value={editedTask}
             onChange={(e) => setEditedTask(e.target.value)}
-            className="bg-transparent p-1  w-[50%] text-gray-200 text-[20px]"
+            className="bg-transparent p-1  w-[50%] text-gray-200 text-[16px] md:text-[20px]"
           />
           <button
-            className="text-gray-200 bg-blue-600 rounded-lg p-1 hover:bg-blue-900 active:bg-inherit"
+            className="text-gray-200 bg-blue-600 rounded-lg h-8 my-auto p-1 hover:bg-blue-900 active:bg-inherit w-[15%] text-[10px] md:text-[16px]"
             onClick={updateTask}
           >
             Update
@@ -44,7 +44,7 @@ const TaskItem = ({
         </span>
       )}
       <button
-        className="text-gray-200 bg-red-600 h-8 my-auto rounded-lg p-1 hover:bg-red-700 w-[15%]"
+        className="text-gray-200 bg-red-600 h-8 my-auto rounded-lg p-1 hover:bg-red-700 w-[15%] text-[10px] md:text-[16px]"
         onClick={() => deleteTask(index)}
       >
         Delete
