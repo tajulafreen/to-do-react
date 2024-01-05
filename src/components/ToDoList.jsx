@@ -73,7 +73,7 @@ const ToDoList = () => {
           newTask={newTask}
           handleInputChange={handleInputChange}
         />
-        <ol className="my-[7%]">
+        <ol className="my-[7%] flex flex-col gap-4">
           {tasks.map((task, index) => (
             <TaskItem
               key={index}
