@@ -12,10 +12,6 @@ body {
   background-image: url('/public/background.jpg'); /* Replace 'background.jpg' with your image path */
   background-size: cover;
   background-repeat: no-repeat;
-  backdrop-filter: blur(8px); 
-  height: 200vh;
- -webkit-backdrop-filter: blur(8px); 
-  overflow: hidden;
 }
 
 

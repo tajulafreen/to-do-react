@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TaskItem from "./TaskItem";
 import AddTask from "./AddTask";
+import "./styles/TodoList.css";
 const ToDoList = () => {
   const [tasks, setTasks] = useState([
     "eat breakfast",
@@ -73,7 +74,7 @@ const ToDoList = () => {
           newTask={newTask}
           handleInputChange={handleInputChange}
         />
-        <ol className="my-[7%] flex flex-col gap-4">
+        <ol className="my-[7%] flex flex-col gap-4 h-[45vh] overflow-auto scrollbar ">
           {tasks.map((task, index) => (
             <TaskItem
               key={index}

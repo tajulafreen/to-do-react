@@ -15,7 +15,7 @@ const TaskItem = ({
   return (
     <li
       key={index}
-      className=" bg-transparent  border-b-2 border-r-2 border-gray-300 m-[3%] h-[50px] flex flex-row justify-between rounded-xl gap-[5px]"
+      className=" bg-transparent backdrop-blur  border-b-2 border-r-2 border-gray-300 m-[3%] h-[50px] flex flex-row justify-between rounded-xl gap-[5px]"
     >
       <button
         onClick={() => editTask(index)}
